@@ -19,8 +19,8 @@ public @Data class Mesa {
 
 	private void carregarCartas(String[] cartasAux) throws Exception {
 		iniciarJogo();
-		if (cartasAux.length != 10) {
-			throw new Exception("Entrada inv�lida");
+		if (cartasAux == null || cartasAux.length != 10) {
+			throw new Exception("Entrada inválida");
 		}
 		for (int i = 0; i < cartasAux.length; i++) {
 			if (i < QUANTIDADE_CARTAS) {
@@ -44,6 +44,9 @@ public @Data class Mesa {
 	}
 	
 	public void melhorJogada(String[] cartasEntrada) throws Exception {
+		if (cartasEntrada == null || cartasEntrada.length != 10) {
+			throw new Exception("Entrada inválida");
+		}
 		this.carregarCartas(cartasEntrada);
 		Carta[] cartas = new Carta[QUANTIDADE_CARTAS];
 		Mao mao = Jogadas.getMelhorJogada(this.mao);
