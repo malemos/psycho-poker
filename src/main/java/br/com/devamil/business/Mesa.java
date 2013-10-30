@@ -20,7 +20,7 @@ public @Data class Mesa {
 	private void carregarCartas(String[] cartasAux) throws Exception {
 		iniciarJogo();
 		if (cartasAux.length != 10) {
-			throw new Exception("Entrada inválida");
+			throw new Exception("Entrada invï¿½lida");
 		}
 		for (int i = 0; i < cartasAux.length; i++) {
 			if (i < QUANTIDADE_CARTAS) {
@@ -51,6 +51,7 @@ public @Data class Mesa {
 			for (int i = 0; i < QUANTIDADE_CARTAS; i++) {
 				cartas[i] = this.monte.get(i);
 				mao = trocarCartas(cartas, mao, i+1);
+				if (mao.getJogada().equals(Jogada.STRAIGHT_FLUSH)) break;
 			}
 		}
 		this.monte.addAll(this.mao);
