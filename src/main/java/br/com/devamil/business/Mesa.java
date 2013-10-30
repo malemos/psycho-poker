@@ -17,9 +17,8 @@ public @Data class Mesa {
 	
 	private final Integer QUANTIDADE_CARTAS = 5;
 
-	private void carregarCartas(String cartasEntradas) throws Exception {
+	private void carregarCartas(String[] cartasAux) throws Exception {
 		iniciarJogo();
-		String[] cartasAux = cartasEntradas.split(" ");
 		if (cartasAux.length != 10) {
 			throw new Exception("Entrada inválida");
 		}
@@ -40,7 +39,11 @@ public @Data class Mesa {
 		this.monte.clear();
 	}
 	
-	public Mao melhorJogada(String cartasEntrada) throws Exception {
+	public void melhorJogada(String cartasEntrada) throws Exception {
+		this.melhorJogada(cartasEntrada.split(" "));
+	}
+	
+	public void melhorJogada(String[] cartasEntrada) throws Exception {
 		this.carregarCartas(cartasEntrada);
 		Carta[] cartas = new Carta[QUANTIDADE_CARTAS];
 		Mao mao = Jogadas.getMelhorJogada(this.mao);
@@ -53,7 +56,7 @@ public @Data class Mesa {
 		this.monte.addAll(this.mao);
 		this.monte.removeAll(mao.getMao());
 		this.setMao(mao.getMao());
-		return mao;
+		System.out.println(" Mao: " + this.getMao() + " Monte: " + this.getMonte() + " A melhor jogada foi: " + mao.getJogada().getNome());
 	}
 
 	private Mao trocarCartas(Carta[] cartas, Mao mao, Integer quantidadeCartasMonte) {

@@ -5,11 +5,11 @@ import java.util.TreeMap;
 
 public enum Jogada {
 
-	STRAIGHT_FLUSH(1, "straight-flush (sequência numérica e de naipe)"), 
+	STRAIGHT_FLUSH(1, "straight-flush (sequÃªncia numÃ©rica e de naipe)"), 
 	FOUR_OF_A_KIND(2, "four-of-a-kind (quadra)"), 
 	FULL_HOUSE(3, "full-house (trinca + par)"), 
-	FLUSH(4, "flush (sequência de naipe)"), 
-	STRAIGHT(5, "straight (sequência numérica)"), 
+	FLUSH(4, "flush (sequÃªncia de naipe)"), 
+	STRAIGHT(5, "straight (sequÃªncia numÃ©rica)"), 
 	THREE_OF_A_KIND(6, "three-of-a-kind (trinca)"), 
 	TWO_PAIRS(7, "two-pairs (2 pares)"), 
 	ONE_PAIR(8, "one-pair (1 par)"), 
